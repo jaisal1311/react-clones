@@ -1,10 +1,13 @@
 import React from "react";
 import { useStateValue } from "../stateProvider";
 import range from "lodash/range";
+import { useHistory } from "react-router-dom";
 
 import "./Product.css";
+import { Link } from "@material-ui/icons";
 
 const Product = ({ id, title, image, price, rating }) => {
+  const history = useHistory();
   const [state, dispatch] = useStateValue();
   const addToBasket = () => {
     dispatch({
@@ -34,13 +37,22 @@ const Product = ({ id, title, image, price, rating }) => {
         </div>
       </div>
       <img src={image} alt="" />
-      <button
-        onClick={() => {
-          addToBasket();
-        }}
-      >
-        Add to Basket
-      </button>
+      <div className="product__buttonBar">
+        <button
+          onClick={() => {
+            addToBasket();
+          }}
+        >
+          Add to Basket
+        </button>
+        <button
+          onClick={() => {
+            history.push("/checkout");
+          }}
+        >
+          View in Basket
+        </button>
+      </div>
     </div>
   );
 };
