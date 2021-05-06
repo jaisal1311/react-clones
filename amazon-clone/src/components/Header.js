@@ -4,7 +4,7 @@ import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import "./Header.css";
 import { useStateValue } from "../stateProvider";
 import { Link } from "react-router-dom";
-import { StarTwoTone } from "@material-ui/icons";
+
 const Header = () => {
   const [state, dispatch] = useStateValue();
   console.log(state.basket.length);

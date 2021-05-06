@@ -28,3 +28,7 @@
 
 .checkoutProduct__price {
 }
+
+.checkoutProduct__rating {
+  display: flex;
+}
