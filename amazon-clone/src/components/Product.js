@@ -6,7 +6,6 @@ import "./Product.css";
 
 const Product = ({ id, title, image, price, rating }) => {
   const [state, dispatch] = useStateValue();
-  console.log(state.basket);
   const addToBasket = () => {
     dispatch({
       type: "ADD_TO_BASKET",
@@ -18,7 +17,6 @@ const Product = ({ id, title, image, price, rating }) => {
         rating: rating,
       },
     });
-    console.log("sdfvs >>", state);
   };
   const star_rating = range(rating);
   return (
