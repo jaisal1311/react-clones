@@ -12,9 +12,14 @@ export const reducer = (state, action) => {
       };
 
     case "REMOVE_FROM_BASKET":
+      const index = state.basket.findIndex((i) => i.id === action.item);
+      let newBasket = [...state.basket];
+      if (index >= 0) {
+        newBasket.splice(index, 1);
+      }
       return {
         ...state,
-        basket: state.basket.filter((i) => i.id !== action.item),
+        basket: newBasket,
       };
 
     default:

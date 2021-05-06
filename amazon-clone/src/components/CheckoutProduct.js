@@ -11,6 +11,7 @@ const CheckoutcheckoutProduct = ({ id, title, image, price, rating }) => {
       item: id,
     });
   };
+
   const star_rating = range(rating);
 
   return (

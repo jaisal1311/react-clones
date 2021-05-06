@@ -6,12 +6,14 @@ import { useStateValue } from "../stateProvider";
 const Subtotal = () => {
   const [{ basket }, dispatch] = useStateValue();
   const [total, setTotal] = useState(0);
+
   useEffect(() => {
-    console.log("in");
+    setTotal(0);
     basket.map(({ price }) => {
       setTotal((total) => total + price);
     });
   }, [basket]);
+
   return (
     <div className="subtotal">
       <CurrencyFormat
