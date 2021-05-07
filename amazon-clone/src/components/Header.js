@@ -28,7 +28,17 @@ const Header = () => {
             <span className="header__optionLineOne">
               {state.user === null ? "Guest" : state.user.email}
             </span>
-            <span className="header__optionLineTwo">Sign In</span>
+            <span
+              className="header__optionLineTwo"
+              onClick={() => {
+                dispatch({
+                  type: "LOG_OUT",
+                  user: null,
+                });
+              }}
+            >
+              {state.user === null ? "Sign In" : "Log Out"}
+            </span>
           </div>
         </Link>
         <div className="header__option">

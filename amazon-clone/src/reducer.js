@@ -29,6 +29,12 @@ export const reducer = (state, action) => {
         user: action.user,
       };
 
+    case "LOG_OUT":
+      return {
+        ...state,
+        user: action.user,
+      };
+
     default:
       return state;
   }
