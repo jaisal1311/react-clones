@@ -7,7 +7,7 @@
   background-color: #131921;
   top: 0;
   color: white !important;
-  z-index: 100;
+  z-index: 200;
 }
 
 .header__logo {

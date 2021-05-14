@@ -10,6 +10,13 @@
   min-width: 100px;
   background-color: white;
   z-index: 1;
+  border-radius: 5px;
+}
+
+.product:hover {
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.4);
+  transform: scale(1.01, 1.01);
+  transition: 0.2s ease;
 }
 
 .product > img {

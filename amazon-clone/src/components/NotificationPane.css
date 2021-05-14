@@ -1,0 +1,23 @@
+.notificationPane {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 60px;
+  right: 30px;
+  width: 300px;
+  height: fit-content;
+  z-index: 1000;
+  margin-top: 10px;
+
+  border-radius: 10px;
+}
+
+.notification-hide {
+  display: none;
+}
+
+.notificationPane__backArrow {
+  align-self: flex-end;
+  color: rgb(209, 203, 203);
+}
