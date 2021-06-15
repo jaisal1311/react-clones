@@ -18,7 +18,6 @@ import { db } from "../firebase";
 
 const Sidebar = () => {
   const [channels, loading, error] = useCollection(db.collection("rooms"));
-  console.log(channels);
   const sidebarOptions = [
     {
       icon: InsertCommentIcon,
