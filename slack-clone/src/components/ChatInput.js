@@ -1,22 +1,27 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
 import { Button } from "@material-ui/core";
-import { db } from "../firebase";
+import { db, auth } from "../firebase";
 import firebase from "firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const ChatInput = ({ channelName, channelId, chatRef }) => {
+  const [user] = useAuthState(auth);
+
   const inputRef = useRef("");
   const sendMessage = (e) => {
     e.preventDefault();
     if (!channelId) {
       return false;
     }
+    if (inputRef.current.value === "") {
+      return false;
+    }
     db.collection("rooms").doc(channelId).collection("messages").add({
       message: inputRef.current.value,
-      user: "Jaisal",
+      user: user?.displayName,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-      userImage:
-        "https://avatars.githubusercontent.com/u/57360897?s=400&u=c4d364de98850d27df8391dee85ad8161686a3b4&v=4",
+      userImage: user?.photoURL,
     });
 
     inputRef.current.value = "";

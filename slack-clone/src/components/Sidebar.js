@@ -14,9 +14,11 @@ import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import AddIcon from "@material-ui/icons/Add";
 import { ExpandMore } from "@material-ui/icons";
 import { useCollection } from "react-firebase-hooks/firestore";
-import { db } from "../firebase";
+import { db, auth } from "../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const Sidebar = () => {
+  const [user] = useAuthState(auth);
   const [channels, loading, error] = useCollection(db.collection("rooms"));
   const sidebarOptions = [
     {
@@ -58,7 +60,7 @@ const Sidebar = () => {
       {/* SidebarHeader */}
       <SidebarHeader>
         <SidebarInfo>
-          <h2>Demo Title</h2>
+          <h2>{user?.displayName}</h2>
           <h3>
             <FiberManualRecordIcon />
             Jaisal Shah
